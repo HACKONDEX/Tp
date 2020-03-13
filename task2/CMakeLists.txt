@@ -22,7 +22,7 @@ enable_testing()
 
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/B)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/googletest)
+#add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/googletest)
 
 
  
@@ -53,7 +53,7 @@ add_executable(CTest ${CMAKE_CURRENT_SOURCE_DIR}/C/main_test.cpp)
 
 
 target_link_libraries(C lib_B)
-target_link_libraries(CTest gtest_main)
+#target_link_libraries(CTest gtest_main)
 # target_link_libraries(CTest ${CMAKE_CURRENT_SOURCE_DIR}/gtest_main)
 
 
