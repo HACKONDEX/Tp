@@ -22,7 +22,7 @@ find_package(GTest REQUIRED)
 include(GoogleTest)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/B)
-# add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/googletest)
+add_subdirectory(googletest)
 
  
 include_directories(PUBLIC ${CMAKECMAKE_CURRENT_SOURCE_DIR}/A
@@ -64,7 +64,7 @@ add_test(
 target_link_libraries(C lib_B)
 target_link_libraries(CTest gtest_main)
 target_link_libraries(C gtest_main)
-# target_link_libraries(CTest ${CMAKE_CURRENT_SOURCE_DIR}/gtest_main)
+# target_link_libraries(CTest gtest_main)
 
 
 
