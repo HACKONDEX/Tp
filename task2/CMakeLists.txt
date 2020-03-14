@@ -57,6 +57,7 @@ add_executable(CTest ${CMAKE_CURRENT_SOURCE_DIR}/C/main_test.cpp)
 target_link_libraries(C lib_B)
 target_link_libraries(CTest gtest_main)
 target_link_libraries(CTest gtest)
+target_link_libraries(CTest pthread)
 target_link_libraries(CTest lib_B)
 target_link_libraries(C gtest_main)
 
