@@ -1,6 +1,6 @@
 #include "lib.h"
 
-// int lib::do_B_()
-// {
-//     return 1001001;
-// }
+int do_B()
+{
+    return 555;
+}
