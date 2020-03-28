@@ -7,7 +7,7 @@ set(CMAKE_C_COMPILER arm-linux-gnueabihf-gcc)
 set(CMAKE_CXX_COMPILER arm-linux-gnueabihf-g++)
 set(CMAKE_ASM_COMPILER arm-linux-gnueabihf-gcc)
 
-set(CMAKE_FIND_ROOT_PATH ${SYSROOT}
+set(CMAKE_FIND_ROOT_PATH ${SYSROOT})
 set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY))
@@ -40,6 +40,13 @@ project(SimpleLibrary)
 # set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 # set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 # set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
+
+if(IS_ ON ARM_BUILD)
+
+
+else()
+
+
 
 
 # 2 ###############################
