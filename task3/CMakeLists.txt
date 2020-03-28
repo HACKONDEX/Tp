@@ -39,7 +39,7 @@ set(CMAKE_SYSTEM_NAME Linux)
 # set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 # set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
 
-make_directory(bin)
+# make_directory(bin)
 
 set(CMAKE_FIND_ROOT_PATH ${TOOLCHAIN})
 
@@ -100,5 +100,12 @@ install(
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib
 )
+
+install(
+    DIRECTORY ${CMAKE_SOURCE_DIR}/include
+    DESTINATION ${CMAKE_INSTALL_PREFIX}
+)
+
+
 
 
