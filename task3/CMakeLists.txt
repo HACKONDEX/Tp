@@ -41,8 +41,7 @@ project(SimpleLibrary)
 # set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 # set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
 
-if(IS_ ON ARM_BUILD)
-
+if(ARM_BUILD)
 
 else()
 
