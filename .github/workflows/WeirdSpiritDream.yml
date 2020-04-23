@@ -33,16 +33,19 @@ jobs:
         echo ${MAIN_DIR}
         mkdir build
         cd build
-        cmake -DGOOGLE_TEST_DIR=googletest -DORIGIN=$(pwd) -DCMAKE_INSTALL_PREFIX=$MAIN_DIR/install_folder ..
+        GOOGLE_TEST_DIR=googletest cmake -DORIGIN=$(pwd) -DCMAKE_INSTALL_PREFIX=$MAIN_DIR/install_folder ..
         make
         make install
 
-#     - name: Test
-#       uses: akhtyamovpavel/ActionGtestReport@v0.0.9
-#       with: 
-#         exec-path: /home/runner/work/Tp/Tp/task4/bin/CTestExe
-#         run: |
-        
+    - uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+      with: 
+        exec-path: /home/runner/work/Tp/Tp/task4/bin/CTestExe
+        report-path: /home/runner/work/Tp/Tp/task4/test-report.xml
+        working-directory: task4
+    - name: Test
+      run: |
+        cd task4
+        tar -zcf test-report.tar.gz test-report.xml 
         
 #     - name: UploadArtifacts
 #       run: |
