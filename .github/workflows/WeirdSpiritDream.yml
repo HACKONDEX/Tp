@@ -54,4 +54,4 @@ jobs:
     - uses: actions/upload-artifact@v1          
       with: 
        name: Distributive
-       path: task4/Distributive.tar.gz
+       path: task4/one_united_file.tar.gz
