@@ -44,7 +44,7 @@ jobs:
     - name: UploadArtifacts
       run: |
         cd task4
-        tar -zcf one_united_file.tar.gz lib bin
+        tar -zcf one_united_file.tar.gz install_folder/exe/lib install_folder/exe/bin
     - uses: actions/upload-artifact@v1          
       with: 
        name: Distributive
