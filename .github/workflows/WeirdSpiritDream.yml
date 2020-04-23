@@ -42,7 +42,7 @@ jobs:
 #     - name: Test
 #       uses: akhtyamovpavel/ActionGtestReport@v0.0.9
 #       with: 
-#         exec-path: task4/bin/CTest
+#         exec-path: /home/runner/work/Tp/Tp/task4/bin/CTestExe
 #         run: |
         
         
