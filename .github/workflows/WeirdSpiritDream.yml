@@ -34,18 +34,15 @@ jobs:
     - uses: akhtyamovpavel/ActionGtestReport@v0.0.9
       with: 
         exec-path: bin/CTestExe
-        report-path: Test-report.xml
+        report-path: report.xml
         working-directory: task4/
     - name: Test
       run: |
         cd task4
-        tar -zcf Test-report.tar.gz Test-report.xml 
+        tar -zcf test-report.tar.gz report.xml 
         
     - name: UploadArtifacts
-      run: |
-        cd task4
-        tar -zcf one_united_file.tar.gz install_folder/exe/lib install_folder/exe/bin
-    - uses: actions/upload-artifact@v2          
+    - uses: actions/upload-artifact@v1          
       with: 
        name: Distributive
-       path: task4/one_united_file.tar.gz
+       path: task4/install_folder/exe/
