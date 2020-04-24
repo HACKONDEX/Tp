@@ -42,7 +42,7 @@ jobs:
         tar -zcf test-report.tar.gz report.xml 
         
     - name: UploadArtifacts
-    - uses: actions/upload-artifact@v1          
+      uses: actions/upload-artifact@v1          
       with: 
        name: Distributive
        path: task4/install_folder/exe/
