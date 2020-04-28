@@ -1,41 +1,48 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
   push:
     branches: [ master, task4]
   pull_request:
     branches: [ master ]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  
+  solve:
+    
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
 
     - name: Build
-      run: | 
-        echo Hello, world!
+      run: |
+        cd task4 
+        mkdir install_folder
+        git clone https://github.com/google/googletest.git
+        mv googletest 3rdparty
+        MAIN_DIR=$(pwd)
+        #echo ${MAIN_DIR}
+        mkdir build
+        cd build
+        GOOGLE_TEST_DIR=googletest cmake -DORIGIN=$(pwd) -DCMAKE_INSTALL_PREFIX=$MAIN_DIR/install_folder ..
+        make
+        make install
 
-
+    - uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+      with: 
+        exec-path: bin/CTestExe
+        report-path: report.xml
+        working-directory: task4/
     - name: Test
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
-        
+        cd task4
+        tar -zcf test-report.tar.gz report.xml 
         
     - name: UploadArtifacts
-      run: |
-        echo axaxaxaxaxax
-            
-    
+      uses: actions/upload-artifact@v1          
+      with: 
+       name: Distributive
+       path: task4/install_folder/exe/
